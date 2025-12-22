@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import toast from 'react-hot-toast';
-import axios from "axios";
 import  SummaryApi  from "../common/SymmaryApi";
 import AxiosToastError from "../utils/AxiosToastError";
+import Axios from '../utils/Axios'
 
 const Register = () => {
   const [credential, setCredential] = useState({
@@ -50,10 +50,8 @@ const Register = () => {
     }
   
     try {
-      const response = await axios({
-        method: SummaryApi.register.method,
-        url: SummaryApi.register.url,
-        headers: SummaryApi.register.headers,
+      const response = await Axios({
+         ...SummaryApi.register,
         data: credential,
       });
 

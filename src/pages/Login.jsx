@@ -3,17 +3,13 @@ import toast from "react-hot-toast";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { Link, Links, useNavigate } from "react-router-dom";
 import SummaryApi from "../common/SymmaryApi"; 
-import axios from "axios";
 import AxiosToastError from "../utils/AxiosToastError";
 import fetchUserDetails from "../utils/fetchUserDetails";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
 import { useGlobalContext } from "../provider/GlobalProvider";
 import Axios from "../utils/Axios";
-import {
-  getGuestCart,
-  clearGuestCart,
-} from "../utils/guestCart";
+
 
 
 const Login = () => {
@@ -64,7 +60,6 @@ const handleSubmit = async (e) => {
     const response = await Axios({
       ...SummaryApi.login,
       data: { email, password },
-      withCredentials: true,
     });
 
     if (response.data.success) {
