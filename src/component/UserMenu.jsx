@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, Links } from 'react-router-dom'
+import { Link, Links, useNavigate } from 'react-router-dom'
 import Divider from './Devider'
 import Axios from '../utils/Axios'
 import SummaryApi from '../common/SymmaryApi'
@@ -15,6 +15,7 @@ const UserMenu = ({close}) => {
    const user = useSelector((state) => state.user) 
    const dispatch = useDispatch()
    
+   const navigate = useNavigate();
    const handleClose = () => {
      if(close){
       close()
@@ -31,7 +32,8 @@ const UserMenu = ({close}) => {
             dispatch(logout())
             localStorage.clear()
             toast.success(response.data.message)
-            window.history.back();
+            // window.history.back();
+            navigate('/')
         } 
      } catch (error) {
         AxiosToastError(error)

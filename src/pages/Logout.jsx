@@ -1,25 +1,34 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logout } from '../store/authSlice';
+import Axios from "../utils/Axios";
+import SummaryApi from "../common/SymmaryApi";
+import { logout } from "../store/userSlice";
 
-export const Logout = () => {
+const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // First, clear storage
-    localStorage.removeItem('jwtToken');
+    const handleLogout = async () => {
+      try {
+        // 🔥 Backend cookie clear
+        await Axios({
+          ...SummaryApi.logout,
+        });
+      } catch (error) {
+        console.log("Logout error:", error);
+      } finally {
+        // 🔥 Frontend state clear
+        dispatch(logout());
+        navigate("/", { replace: true });
+      }
+    };
 
-    // Dispatch the logout action
-    dispatch(logout());
-
-    // Ensure navigation happens after state updates
-    setTimeout(() => {
-      navigate('/');
-    }, 0);
-
+    handleLogout();
   }, []);
 
   return null;
 };
+
+export default Logout;

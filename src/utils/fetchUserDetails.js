@@ -1,23 +1,21 @@
-import Axios from "./Axios";
-import SummaryApi from "../common/SymmaryApi";
-
+import Axios from "./Axios"
+import SummaryApi from "../common/SymmaryApi"
+import AxiosToastError from "./AxiosToastError"
 const fetchUserDetails = async () => {
-  try {
-    const token = localStorage.getItem("accessToken");
-    if (!token) return null;
+  const token = localStorage.getItem("accessToken");
+  if (!token) return null;
 
+  try {
     const response = await Axios({
-      ...SummaryApi.UserDetails,
+      ...SummaryApi.UserDetails
     });
 
-    return response;
+    return response.data.success ? response.data.data : null;
   } catch (error) {
-    if (error.response?.status === 401) {
-      localStorage.removeItem("accessToken");
-      return null;
-    }
-    throw error;
+    AxiosToastError(error);
+    return null;
   }
 };
 
-export default fetchUserDetails;
+export default fetchUserDetails
+

@@ -60,7 +60,9 @@ const handleSubmit = async (e) => {
     const response = await Axios({
       ...SummaryApi.login,
       data: { email, password },
+
     });
+    console.log("response from login" , response)
 
     if (response.data.success) {
       // ✅ SAVE TOKENS FIRST
@@ -68,11 +70,12 @@ const handleSubmit = async (e) => {
       localStorage.setItem("refreshToken", response.data.refreshToken);
 
       // ✅ NOW FETCH USER
-      const userDetails = await fetchUserDetails();
-      dispatch(setUserDetails(userDetails.data.data));
+      // const userDetails = await fetchUserDetails();
+      // console.log("userDetails",userDetails)
+      // dispatch(setUserDetails(userDetails.data.data));
 
       // ✅ FETCH CART AFTER LOGIN
-      fetchCartItem();
+      // fetchCartItem();
 
       toast.success("Login successful!");
       setLoginCredential({ email: "", password: "" });

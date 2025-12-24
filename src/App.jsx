@@ -27,10 +27,10 @@ function App() {
 const fetchUser = async () => {
   try {
     const userData = await fetchUserDetails();
-    
+    console.log("fetchUser", userData)
 
-    if (userData?.data?.data) {
-      dispatch(setUserDetails(userData.data.data));
+    if (userData) {
+      dispatch(setUserDetails(userData));
     } else {
       dispatch(setUserDetails(null));
     }
@@ -53,7 +53,7 @@ const fetchUser = async () => {
         dispatch(setAllCategory(responseData.data));
       }
     } catch (error) {
-      console.log(error);
+      console.log();
     } finally {
       dispatch(setLoadingCategory(false));
     }
@@ -69,7 +69,7 @@ const fetchUser = async () => {
         dispatch(setSubCategory(responseData.data.subcategories));
       }
     } catch (error) {
-      console.log(error);
+      console.log();
     }
   };
 
@@ -79,9 +79,16 @@ const fetchUser = async () => {
   if (token) {
     fetchUser();
   }
-  fetchCategory();
-  fetchSubCategory();
-}, []);
+
+  // fetchCategory();
+  // fetchSubCategory();
+
+  // modified code for now 
+  if(location.pathname === '/'){
+      fetchCategory();
+      fetchSubCategory();
+  }
+}, [location.pathname]);
 
 
 
