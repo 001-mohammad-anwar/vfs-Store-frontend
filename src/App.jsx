@@ -133,7 +133,7 @@ const fetchUser = async () => {
     <GlobalProvider>
   
         <Navbar />
-        <main className=" min-h-[80vh] ">
+        <main className="min-h-[calc(100vh-96px)]">
           <Outlet />
         </main>
         {/* <Footer /> */}

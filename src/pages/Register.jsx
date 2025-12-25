@@ -66,8 +66,8 @@ const Register = () => {
   };
   
   return (
-    <div className="flex items-center justify-center min-h-screen -mt-20 px-4 ">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm lg:max-w-md mt-12">
+    <div className="flex items-center justify-center min-h-[calc(100dvh-168px)] lg:min-h-[calc(100vh-96px)] px-4">
+      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm lg:max-w-md ">
         <form onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-2">
             Welcome to BFS
