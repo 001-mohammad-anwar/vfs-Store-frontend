@@ -9,25 +9,23 @@ import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import Axios from "../utils/Axios";
 
-const AddToCartButton = ({ data }) => {
+  const AddToCartButton = ({ data }) => {
   const { fetchCartItem, updateCartItem, DeleteCartItem } = useGlobalContext();
   const [loading, setLoading] = useState(false);
   const cartItem = useSelector((state) => state.cartItem.cart);
   const [isAvailableCart, setIsAvailableCart] = useState(false);
   const [qty, setQty] = useState(0);
   const [cartItemDetails, setCartItemDetails] = useState();
-
   const handleAddToCart = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-
     try {
       setLoading(true);
       const response = await Axios({
         ...SummaryApi.addToCart,
         data: { productId: data._id },
       });
-
+      
       const { data: responseData } = response;
       if (responseData.success) {
         toast.success(responseData.message);
