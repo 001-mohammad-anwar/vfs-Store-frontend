@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
 import { useGlobalContext } from "../provider/GlobalProvider";
 import Axios from "../utils/Axios";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 
 
@@ -69,14 +70,6 @@ const handleSubmit = async (e) => {
       localStorage.setItem("accessToken", response.data.token);
       localStorage.setItem("refreshToken", response.data.refreshToken);
 
-      // ✅ NOW FETCH USER
-      // const userDetails = await fetchUserDetails();
-      // console.log("userDetails",userDetails)
-      // dispatch(setUserDetails(userDetails.data.data));
-
-      // ✅ FETCH CART AFTER LOGIN
-      // fetchCartItem();
-
       toast.success("Login successful!");
       setLoginCredential({ email: "", password: "" });
 
@@ -90,61 +83,10 @@ const handleSubmit = async (e) => {
 };
 
 
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-
-//   const { email, password } = loginCredential;
-
-//   if (!validateEmail(email)) {
-//     setError("Invalid email format!");
-//     return;
-//   }
-
-//   try {
-//     const response = await Axios({
-//       ...SummaryApi.login,
-//       data: { email, password },
-//     });
-
-//     if (response.data.success) {
-//       // 1️⃣ SAVE TOKENS
-//       localStorage.setItem("accessToken", response.data.token);
-//       localStorage.setItem("refreshToken", response.data.refreshToken);
-
-//       // 2️⃣ FETCH USER
-//       const userDetails = await fetchUserDetails();
-//       dispatch(setUserDetails(userDetails.data.data));
-
-//       // 3️⃣ GET GUEST CART
-//       const guestCart = getGuestCart();
-
-//       // 4️⃣ MERGE GUEST CART
-//       if (guestCart.length > 0) {
-//         await Axios({
-//           ...SummaryApi.mergeGuestCart,
-//           data: { items: guestCart },
-//         });
-
-//         // 5️⃣ CLEAR GUEST CART
-//         clearGuestCart();
-//       }
-
-//       // 6️⃣ FETCH USER CART
-//       fetchCartItem();
-
-//       toast.success("Login successful!");
-//       navigate("/");
-//     }
-//   } catch (error) {
-//     AxiosToastError(error);
-//   }
-// };
-
-
   return (
-    <div className="flex  items-center justify-center min-h-[calc(100vh-168px)] lg:min-h-[calc(100vh-96px)] px-4 ">
-      <div className="bg-white rounded-md shadow-lg p-8 w-full max-w-md z-50">
+    <div className="w-full flex justify-center items-center px-4">
+      <div className="bg-white rounded-md shadow-lg p-8 w-full max-w-md z-50 relative">
+         <button onClick={() => navigate(-1)} className="absolute top-4 left-4"><FaArrowLeftLong size={20}/></button>
         <form onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-2">Welcome to BFS</h1>
 

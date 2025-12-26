@@ -24,6 +24,13 @@ function App() {
   const location = useLocation()
 
 
+
+  // Pages jahan navbar nahi chahiye
+  const hideNavbarRoutes = ["/login", "/register", "/forgotPassword"];
+
+  const hideNavbar = hideNavbarRoutes.includes(location.pathname);
+
+
 const fetchUser = async () => {
   try {
     const userData = await fetchUserDetails();
@@ -132,12 +139,15 @@ const fetchUser = async () => {
   return (
     <GlobalProvider>
   
-        <Navbar />
-        <main className="min-h-[calc(100vh-96px)]">
+      <div className="min-h-screen flex flex-col">
+        {!hideNavbar && <Navbar />}
+
+        <main className="flex-1 flex justify-center items-center">
           <Outlet />
         </main>
-        {/* <Footer /> */}
+
         <Toaster />
+      </div>
 
         {
           location.pathname !== '/checkout' && (
