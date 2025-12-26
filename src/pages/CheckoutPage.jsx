@@ -48,7 +48,7 @@ const CheckoutPage = () => {
   }
 
   return (
-    <section className="bg-white p-4 ">
+    <section className="bg-white p-4 w-full">
       <div className="container mx-auto p-4 border flex flex-col lg:flex-row w-full gap-4 justify-between">
         <div className="w-full">
           {/* Address Section */}
