@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SuccessOrder = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh] bg-gray-50 px-4">
+    <div className="w-full flex flex-col items-center justify-center h-[80vh] bg-gray-50 px-4">
       {/* Green Check Icon */}
       <div className="bg-green-100 p-6 rounded-full">
         <svg

@@ -139,10 +139,10 @@ const fetchUser = async () => {
   return (
     <GlobalProvider>
   
-      <div className="min-h-screen flex flex-col">
+      <div className=" min-h-screen flex flex-col">
         {!hideNavbar && <Navbar />}
 
-        <main className="flex-1 flex justify-center items-center">
+        <main className="w-full flex-1 flex justify-center items-center bg-white">
           <Outlet />
         </main>
 

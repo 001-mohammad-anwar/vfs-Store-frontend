@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className=" w-full flex justify-center items-center px-4">
+    <div className="h-full w-full flex justify-center items-center px-4">
       <div className="bg-white rounded-md shadow-lg p-8 w-full max-w-md z-50 relative">
          <button onClick={() => navigate(-1)} className="absolute top-4 left-4"><FaArrowLeftLong size={20}/></button>
         <form onSubmit={handleSubmit}>

@@ -55,7 +55,7 @@ const Navbar = () => {
   // }, [cartItem]);
 
   return (
-    <header className="h-42 lg:h-24 w-full bg-white shadow-sm sticky top-0 z-50">
+    <header className="mx-auto h-42 lg:h-24 w-full bg-white shadow-sm sticky top-0 z-50">
       {!(isSearchPage && isMobile) && (
         <div className="container mx-auto flex justify-between items-center h-full px-2">
           {/* Logo */}
