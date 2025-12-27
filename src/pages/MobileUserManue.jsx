@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 
 const MobileUserMenu = () => {
   return (
-    <section className="bg-white h-full w-full">
+    <section className="bg-white h-full w-full ">
       {/* Close Button */}
       <button
         onClick={() => window.history.back()}

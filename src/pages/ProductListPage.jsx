@@ -71,7 +71,7 @@ const ProductListPage = () => {
   }, [params, AllsubCategory]);
 
   return (
-    <section className="sticky top-24 lg:top-20">
+    <section className="w-full sticky top-24 lg:top-20">
        {/* header */}
       <div className="sticky top-0 z-50 bg-gray-50 shadow-lg border-y-1 p-2 w-full container mx-auto my-[1px] rounded">
         <h3 className="font-bold px-4">Buy {subCategoryName} Online</h3>

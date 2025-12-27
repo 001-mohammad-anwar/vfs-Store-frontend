@@ -70,9 +70,9 @@ const Product = () => {
   };
 
   return (
-    <section className="">
+    <section className="w-full">
       {/* Header */}
-      <div className="bg-white rounded-lg shadow-sm p-2 mb-6 flex items-center justify-between gap-3">
+      <div className="bg-white rounded-lg shadow-sm p-2 mb-6 flex items-center justify-between gap-3 ">
         <h2 className="text-2xl font-bold text-gray-800">Product</h2>
         <div className="flex py-2 min-w-24 rounded-md bg-blue-50 px-3 items-center border focus-within:border-yellow-300 gap-1">
           <IoIosSearch size={20} />

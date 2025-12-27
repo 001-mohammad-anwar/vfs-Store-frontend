@@ -83,7 +83,7 @@ const ProductDisplayPage = () => {
   }
 
   return (
-    <section className="container mx-auto grid lg:grid-cols-2 p-4 gap-4 item-center justify-center">
+    <section className="container mx-auto grid lg:grid-cols-2 p-4 gap-4 item-center justify-center w-full">
       {/* Left: Image section */}
       <div className="flex flex-col bg-white rounded-lg overflow-hidden shadow items-center w-full ">
           
