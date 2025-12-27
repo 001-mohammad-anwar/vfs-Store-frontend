@@ -7,16 +7,17 @@ const Dashboard = () => {
   const user = useSelector((state) => state.user);
 
   return (
-    <section className="bg-white ">
-      <div className="container mx-auto p-3  grid lg:grid-cols-[200px,1fr] ">        
-        {/* Left Sidebar - User Menu */}
-        <aside className="py-4 sticky overflow-y-auto max-h-[calc(100vh-96px)] top-24 hidden lg:block border-r"> 
+    <section className="w-full min-h-[calc(100vh-96px)] bg-gray-50">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr]">
+
+        {/* Sidebar */}
+        <aside className="hidden lg:block sticky top-24 h-[calc(100vh-96px)] border-r bg-white">
           <UserMenu />
         </aside>
 
-        {/* Right Content Area */}
-        <main className="bg-white min-h-[75vh] flex justify-center">
-            <Outlet/>
+        {/* Main Content */}
+        <main className="p-4 md:p-6 bg-white min-h-[calc(100vh-96px)]">
+          <Outlet />
         </main>
 
       </div>

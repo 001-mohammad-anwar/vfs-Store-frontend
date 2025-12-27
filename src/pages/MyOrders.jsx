@@ -33,8 +33,8 @@ const loadOrders = async () => {
 const cancelOrder = async (orderId) => {
   try {
     const response = await Axios({
-      ...SummaryApi.cancelOrder, // isme method & url set honi chahiye
-      data: { orderId }          // body me bhejna
+      ...SummaryApi.cancelOrder, 
+      data: { orderId }          
     });
 
     const { data: responseData } = response;
@@ -56,7 +56,7 @@ const cancelOrder = async (orderId) => {
 
 
   return (
-    <Link to={"/dashboard/order-Details"} className="max-w-4xl w-full mx-auto p-4">
+    <Link to={"/dashboard/order-Details"} className="max-w-6xl w-full mx-auto p-4">
       <h2 className="text-xl font-bold mb-4">My Orders</h2>
 
       {loading ? (
@@ -69,9 +69,9 @@ const cancelOrder = async (orderId) => {
               
             <div
               key={order._id}
-              className="border rounded-lg shadow p-4 flex justify-between items-center bg-white"
+              className=" border rounded-lg shadow p-4 flex justify-between items-center bg-white"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ">
                 <img
                   src={order?.snapshot?.items?.[0]?.image?.[0] ||
                     "/no-image.png"}
